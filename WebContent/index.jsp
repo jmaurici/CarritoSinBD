@@ -13,7 +13,7 @@
   <H1>Your online Bookshop</H1>
   <hr/><p/>
 <%  // Scriptlet 1: check whether the book list is ready
-  Vector booklist = (Vector)session.getValue("ebookshop.list");
+  Vector booklist = (Vector)session.getValue("listaLibros");
   if (booklist == null) {
     response.sendRedirect("/carrito/eshop");
     }
@@ -29,19 +29,19 @@
           }
   %>
         </select>
-      Quantity: <input type="text" name="qty" size="3" value="1">
-      <input type="submit" value="Add to Cart">
+      Cantidad: <input type="text" name="qty" size="3" value="1">
+      <input type="submit" value="Al Carro">
       </form>
     <p/>
 <%  // Scriptlet 3: check whether the shopping cart is empty
-    Vector shoplist = (Vector)session.getValue("ebookshop.cart");
+    Vector shoplist = (Vector)session.getValue("carrito");
     if (shoplist != null  &&  shoplist.size() > 0) {
   %>
       <table border="1" cellpadding="2">
       <tr>
-      <td>TITLE</td>
-      <td>PRICE</td>
-      <td>QUANTITY</td>
+      <td>TITULO</td>
+      <td>PRECIO</td>
+      <td>CANTIDAD</td>
       <td></td>
       </tr>
 <%  // Scriptlet 4: display the books in the shopping cart
@@ -55,7 +55,7 @@
             <td><%=aBook.getTitle()%></td>
             <td align="right">$<%=aBook.getPrice()%></td>
             <td align="right"><%=aBook.getQuantity()%></td>
-            <td><input type="submit" value="Remove from Cart"></td>
+            <td><input type="submit" value="Eliminar"></td>
             </form>
           </tr>
 <%
@@ -65,7 +65,7 @@
       <p/>
       <form name="checkoutForm" action="eshop" method="POST">
         <input type="hidden" name="do_this" value="checkout">
-        <input type="submit" value="Checkout">
+        <input type="submit" value="Facturar">
         </form>
 <%
       } // if (shoplist..

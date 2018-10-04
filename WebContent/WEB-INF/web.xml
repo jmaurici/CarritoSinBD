@@ -6,11 +6,11 @@
     Beginning JSP, JSF and Tomcat: from Novice to Professional
     </description>
   <servlet>
-    <servlet-name>EBookshopServlet</servlet-name>
-    <servlet-class>ebookshop.ShoppingServlet</servlet-class>
+    <servlet-name>xyz</servlet-name>
+    <servlet-class>ebookshop.Controlador</servlet-class>
     </servlet>
   <servlet-mapping>
-    <servlet-name>EBookshopServlet</servlet-name>
+    <servlet-name>xyz</servlet-name>
     <url-pattern>/eshop</url-pattern>
     </servlet-mapping>
 </web-app>
